@@ -1,0 +1,240 @@
+<channel version="4.5.2">
+    <id>0a324bf3-278c-487d-8438-5275bad0b673</id>
+    <nextMetaDataId>2</nextMetaDataId>
+    <name>ejercicio9</name>
+    <description></description>
+    <revision>1</revision>
+    <sourceConnector version="4.5.2">
+      <metaDataId>0</metaDataId>
+      <name>sourceConnector</name>
+      <properties class="com.mirth.connect.connectors.vm.VmReceiverProperties" version="4.5.2">
+        <pluginProperties/>
+        <sourceConnectorProperties version="4.5.2">
+          <responseVariable>None</responseVariable>
+          <respondAfterProcessing>true</respondAfterProcessing>
+          <processBatch>false</processBatch>
+          <firstResponse>false</firstResponse>
+          <processingThreads>1</processingThreads>
+          <resourceIds class="linked-hash-map">
+            <entry>
+              <string>Default Resource</string>
+              <string>[Default Resource]</string>
+            </entry>
+          </resourceIds>
+          <queueBufferSize>1000</queueBufferSize>
+        </sourceConnectorProperties>
+      </properties>
+      <transformer version="4.5.2">
+        <elements/>
+        <inboundDataType>DELIMITED</inboundDataType>
+        <outboundDataType>XML</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedDataTypeProperties" version="4.5.2">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedSerializationProperties" version="4.5.2">
+            <columnDelimiter>;</columnDelimiter>
+            <recordDelimiter>\n</recordDelimiter>
+            <quoteToken>&quot;</quoteToken>
+            <escapeWithDoubleQuote>true</escapeWithDoubleQuote>
+            <quoteEscapeToken>\</quoteEscapeToken>
+            <columnNames>
+              <string>id</string>
+              <string>nombre</string>
+              <string>apellido</string>
+              <string>edad</string>
+              <string>eail</string>
+            </columnNames>
+            <numberedRows>false</numberedRows>
+            <ignoreCR>true</ignoreCR>
+          </serializationProperties>
+          <deserializationProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedDeserializationProperties" version="4.5.2">
+            <columnDelimiter>,</columnDelimiter>
+            <recordDelimiter>\n</recordDelimiter>
+            <quoteToken>&quot;</quoteToken>
+            <escapeWithDoubleQuote>true</escapeWithDoubleQuote>
+            <quoteEscapeToken>\</quoteEscapeToken>
+          </deserializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.delimited.DelimitedBatchProperties" version="4.5.2">
+            <splitType>Record</splitType>
+            <batchSkipRecords>0</batchSkipRecords>
+            <batchMessageDelimiter></batchMessageDelimiter>
+            <batchMessageDelimiterIncluded>false</batchMessageDelimiterIncluded>
+            <batchGroupingColumn></batchGroupingColumn>
+            <batchScript></batchScript>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.5.2">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.5.2">
+            <stripNamespaces>false</stripNamespaces>
+          </serializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.5.2">
+            <splitType>Element_Name</splitType>
+            <elementName></elementName>
+            <level>1</level>
+            <query></query>
+            <batchScript></batchScript>
+          </batchProperties>
+        </outboundProperties>
+      </transformer>
+      <filter version="4.5.2">
+        <elements/>
+      </filter>
+      <transportName>Channel Reader</transportName>
+      <mode>SOURCE</mode>
+      <enabled>true</enabled>
+      <waitForPrevious>true</waitForPrevious>
+    </sourceConnector>
+    <destinationConnectors>
+      <connector version="4.5.2">
+        <metaDataId>1</metaDataId>
+        <name>Destination 1</name>
+        <properties class="com.mirth.connect.connectors.vm.VmDispatcherProperties" version="4.5.2">
+          <pluginProperties/>
+          <destinationConnectorProperties version="4.5.2">
+            <queueEnabled>false</queueEnabled>
+            <sendFirst>false</sendFirst>
+            <retryIntervalMillis>10000</retryIntervalMillis>
+            <regenerateTemplate>false</regenerateTemplate>
+            <retryCount>0</retryCount>
+            <rotate>false</rotate>
+            <includeFilterTransformer>false</includeFilterTransformer>
+            <threadCount>1</threadCount>
+            <threadAssignmentVariable></threadAssignmentVariable>
+            <validateResponse>false</validateResponse>
+            <resourceIds class="linked-hash-map">
+              <entry>
+                <string>Default Resource</string>
+                <string>[Default Resource]</string>
+              </entry>
+            </resourceIds>
+            <queueBufferSize>1000</queueBufferSize>
+            <reattachAttachments>true</reattachAttachments>
+          </destinationConnectorProperties>
+          <channelId>none</channelId>
+          <channelTemplate>${message.encodedData}</channelTemplate>
+          <mapVariables/>
+        </properties>
+        <transformer version="4.5.2">
+          <elements/>
+          <inboundTemplate encoding="base64"></inboundTemplate>
+          <outboundTemplate encoding="base64"></outboundTemplate>
+          <inboundDataType>XML</inboundDataType>
+          <outboundDataType>XML</outboundDataType>
+          <inboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.5.2">
+            <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.5.2">
+              <stripNamespaces>false</stripNamespaces>
+            </serializationProperties>
+            <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.5.2">
+              <splitType>Element_Name</splitType>
+              <elementName></elementName>
+              <level>1</level>
+              <query></query>
+              <batchScript></batchScript>
+            </batchProperties>
+          </inboundProperties>
+          <outboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.5.2">
+            <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.5.2">
+              <stripNamespaces>false</stripNamespaces>
+            </serializationProperties>
+            <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.5.2">
+              <splitType>Element_Name</splitType>
+              <elementName></elementName>
+              <level>1</level>
+              <query></query>
+              <batchScript></batchScript>
+            </batchProperties>
+          </outboundProperties>
+        </transformer>
+        <responseTransformer version="4.5.2">
+          <elements/>
+          <inboundDataType>XML</inboundDataType>
+          <outboundDataType>XML</outboundDataType>
+          <inboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.5.2">
+            <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.5.2">
+              <stripNamespaces>false</stripNamespaces>
+            </serializationProperties>
+            <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.5.2">
+              <splitType>Element_Name</splitType>
+              <elementName></elementName>
+              <level>1</level>
+              <query></query>
+              <batchScript></batchScript>
+            </batchProperties>
+          </inboundProperties>
+          <outboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.5.2">
+            <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.5.2">
+              <stripNamespaces>false</stripNamespaces>
+            </serializationProperties>
+            <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.5.2">
+              <splitType>Element_Name</splitType>
+              <elementName></elementName>
+              <level>1</level>
+              <query></query>
+              <batchScript></batchScript>
+            </batchProperties>
+          </outboundProperties>
+        </responseTransformer>
+        <filter version="4.5.2">
+          <elements/>
+        </filter>
+        <transportName>Channel Writer</transportName>
+        <mode>DESTINATION</mode>
+        <enabled>true</enabled>
+        <waitForPrevious>true</waitForPrevious>
+      </connector>
+    </destinationConnectors>
+    <preprocessingScript>// Modify the message variable below to pre process data//var mg=SerializerFactory.getSerializer(&apos;HL7V2&apos;).toXML(message);//var mg=SerializerFactory.getSerializer(&apos;DELIMITED&apos;).toXML(message);//return mg;var serializationProperties = SerializerFactory.getDefaultSerializationProperties(&apos;DELIMITED&apos;);//serializationProperties.put(&apos;columnDelimiter&apos;, &apos;;&apos;);//serializationProperties.put(&apos;columnNames&apos;, &apos;id,nombre,apellido,edad,email&apos;); // sin espaciosvar mg=SerializerFactory.getSerializer(&apos;DELIMITED&apos;, serializationProperties, null).toXML(message);return mg;</preprocessingScript>
+    <postprocessingScript>// This script executes once after a message has been processed// Responses returned from here will be stored as &quot;Postprocessor&quot; in the response mapreturn;</postprocessingScript>
+    <deployScript>// This script executes once when the channel is deployed// You only have access to the globalMap and globalChannelMap here to persist datareturn;</deployScript>
+    <undeployScript>// This script executes once when the channel is undeployed// You only have access to the globalMap and globalChannelMap here to persist datareturn;</undeployScript>
+    <properties version="4.5.2">
+      <clearGlobalChannelMap>true</clearGlobalChannelMap>
+      <messageStorageMode>DEVELOPMENT</messageStorageMode>
+      <encryptData>false</encryptData>
+      <encryptAttachments>false</encryptAttachments>
+      <encryptCustomMetaData>false</encryptCustomMetaData>
+      <removeContentOnCompletion>false</removeContentOnCompletion>
+      <removeOnlyFilteredOnCompletion>false</removeOnlyFilteredOnCompletion>
+      <removeAttachmentsOnCompletion>false</removeAttachmentsOnCompletion>
+      <initialState>STARTED</initialState>
+      <storeAttachments>true</storeAttachments>
+      <metaDataColumns>
+        <metaDataColumn>
+          <name>SOURCE</name>
+          <type>STRING</type>
+          <mappingName>mirth_source</mappingName>
+        </metaDataColumn>
+        <metaDataColumn>
+          <name>TYPE</name>
+          <type>STRING</type>
+          <mappingName>mirth_type</mappingName>
+        </metaDataColumn>
+      </metaDataColumns>
+      <attachmentProperties version="4.5.2">
+        <type>None</type>
+        <properties/>
+      </attachmentProperties>
+      <resourceIds class="linked-hash-map">
+        <entry>
+          <string>Default Resource</string>
+          <string>[Default Resource]</string>
+        </entry>
+      </resourceIds>
+    </properties>
+    <exportData>
+      <metadata>
+        <enabled>true</enabled>
+        <lastModified>
+          <time>1747653859539</time>
+          <timezone>Europe/Paris</timezone>
+        </lastModified>
+        <pruningSettings>
+          <archiveEnabled>true</archiveEnabled>
+          <pruneErroredMessages>false</pruneErroredMessages>
+        </pruningSettings>
+        <userId>1</userId>
+      </metadata>
+      <dependentIds/>
+      <dependencyIds/>
+      <channelTags/>
+    </exportData>
+  </channel>
+  
