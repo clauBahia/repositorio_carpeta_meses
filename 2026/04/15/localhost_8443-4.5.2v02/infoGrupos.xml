@@ -1,0 +1,26 @@
+  <channelGroup version="4.5.2">
+    <id>98d47d66-ccd8-43f2-9676-de92960def59</id>
+    <name>TestChannel</name>
+    <revision>1</revision>
+    <lastModified>
+      <time>1776239336968</time>
+      <timezone>Europe/Paris</timezone>
+    </lastModified>
+    <channels/>
+  </channelGroup>
+  <channelGroup version="4.5.2">
+    <id>b5e9d04d-dbb4-46e5-8ae6-545db097ec1d</id>
+    <name>grupo_prueba</name>
+    <revision>2</revision>
+    <lastModified>
+      <time>1776171173386</time>
+      <timezone>Europe/Paris</timezone>
+    </lastModified>
+    <description></description>
+    <channels>
+      <channel version="4.5.2">
+        <id>b5e9d04d-dbb4-46e5-8ae6-545db097ec1d</id>
+        <revision>0</revision>
+      </channel>
+    </channels>
+  </channelGroup>
