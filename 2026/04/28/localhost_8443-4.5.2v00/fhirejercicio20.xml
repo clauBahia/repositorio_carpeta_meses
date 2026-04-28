@@ -1,0 +1,232 @@
+<channel version="4.5.2">
+    <id>8f2ad747-bde1-4f0c-b85e-e0973197f8a1</id>
+    <nextMetaDataId>3</nextMetaDataId>
+    <name>fhirejercicio20</name>
+    <description></description>
+    <revision>13</revision>
+    <sourceConnector version="4.5.2">
+      <metaDataId>0</metaDataId>
+      <name>sourceConnector</name>
+      <properties class="com.mirth.connect.connectors.dimse.DICOMReceiverProperties" version="4.5.2">
+        <pluginProperties/>
+        <listenerConnectorProperties version="4.5.2">
+          <host>0.0.0.0</host>
+          <port>2525</port>
+        </listenerConnectorProperties>
+        <sourceConnectorProperties version="4.5.2">
+          <responseVariable>Auto-generate (Before processing)</responseVariable>
+          <respondAfterProcessing>false</respondAfterProcessing>
+          <processBatch>false</processBatch>
+          <firstResponse>false</firstResponse>
+          <processingThreads>1</processingThreads>
+          <resourceIds class="linked-hash-map">
+            <entry>
+              <string>Default Resource</string>
+              <string>[Default Resource]</string>
+            </entry>
+          </resourceIds>
+          <queueBufferSize>1000</queueBufferSize>
+        </sourceConnectorProperties>
+        <applicationEntity>EE</applicationEntity>
+        <localHost></localHost>
+        <localPort></localPort>
+        <localApplicationEntity></localApplicationEntity>
+        <soCloseDelay>50</soCloseDelay>
+        <releaseTo>5</releaseTo>
+        <requestTo>5</requestTo>
+        <idleTo>60</idleTo>
+        <reaper>10</reaper>
+        <rspDelay>0</rspDelay>
+        <pdv1>false</pdv1>
+        <sndpdulen>16</sndpdulen>
+        <rcvpdulen>16</rcvpdulen>
+        <async>0</async>
+        <bigEndian>false</bigEndian>
+        <bufSize>1</bufSize>
+        <defts>false</defts>
+        <dest></dest>
+        <nativeData>false</nativeData>
+        <sorcvbuf>0</sorcvbuf>
+        <sosndbuf>0</sosndbuf>
+        <tcpDelay>true</tcpDelay>
+        <keyPW></keyPW>
+        <keyStore></keyStore>
+        <keyStorePW></keyStorePW>
+        <noClientAuth>true</noClientAuth>
+        <nossl2>true</nossl2>
+        <tls>notls</tls>
+        <trustStore></trustStore>
+        <trustStorePW></trustStorePW>
+      </properties>
+      <transformer version="4.5.2">
+        <elements/>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <inboundDataType>XML</inboundDataType>
+        <outboundDataType>JSON</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.xml.XMLDataTypeProperties" version="4.5.2">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.xml.XMLSerializationProperties" version="4.5.2">
+            <stripNamespaces>false</stripNamespaces>
+          </serializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.xml.XMLBatchProperties" version="4.5.2">
+            <splitType>Element_Name</splitType>
+            <elementName></elementName>
+            <level>1</level>
+            <query></query>
+            <batchScript></batchScript>
+          </batchProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.2">
+          <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.2">
+            <splitType>JavaScript</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+        </outboundProperties>
+      </transformer>
+      <filter version="4.5.2">
+        <elements/>
+      </filter>
+      <transportName>DICOM Listener</transportName>
+      <mode>SOURCE</mode>
+      <enabled>true</enabled>
+      <waitForPrevious>true</waitForPrevious>
+    </sourceConnector>
+    <destinationConnectors>
+      <connector version="4.5.2">
+        <metaDataId>1</metaDataId>
+        <name>Destination 1</name>
+        <properties class="com.mirth.connect.connectors.vm.VmDispatcherProperties" version="4.5.2">
+          <pluginProperties/>
+          <destinationConnectorProperties version="4.5.2">
+            <queueEnabled>false</queueEnabled>
+            <sendFirst>false</sendFirst>
+            <retryIntervalMillis>10000</retryIntervalMillis>
+            <regenerateTemplate>false</regenerateTemplate>
+            <retryCount>0</retryCount>
+            <rotate>false</rotate>
+            <includeFilterTransformer>false</includeFilterTransformer>
+            <threadCount>1</threadCount>
+            <threadAssignmentVariable></threadAssignmentVariable>
+            <validateResponse>false</validateResponse>
+            <resourceIds class="linked-hash-map">
+              <entry>
+                <string>Default Resource</string>
+                <string>[Default Resource]</string>
+              </entry>
+            </resourceIds>
+            <queueBufferSize>1000</queueBufferSize>
+            <reattachAttachments>true</reattachAttachments>
+          </destinationConnectorProperties>
+          <channelId>none</channelId>
+          <channelTemplate>${message.encodedData}</channelTemplate>
+          <mapVariables/>
+        </properties>
+        <transformer version="4.5.2">
+          <elements/>
+          <inboundTemplate encoding="base64"></inboundTemplate>
+          <outboundTemplate encoding="base64"></outboundTemplate>
+          <inboundDataType>JSON</inboundDataType>
+          <outboundDataType>JSON</outboundDataType>
+          <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.2">
+            <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.2">
+              <splitType>JavaScript</splitType>
+              <batchScript></batchScript>
+            </batchProperties>
+          </inboundProperties>
+          <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.2">
+            <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.2">
+              <splitType>JavaScript</splitType>
+              <batchScript></batchScript>
+            </batchProperties>
+          </outboundProperties>
+        </transformer>
+        <responseTransformer version="4.5.2">
+          <elements>
+            <com.mirth.connect.plugins.javascriptstep.JavaScriptStep version="4.5.2">
+              <sequenceNumber>0</sequenceNumber>
+              <enabled>false</enabled>
+              <script>var r=response.getMessage();rJ=JSON.parse(r);channelMap.put(&apos;res&apos;,rJ);</script>
+            </com.mirth.connect.plugins.javascriptstep.JavaScriptStep>
+          </elements>
+          <inboundTemplate encoding="base64"></inboundTemplate>
+          <outboundTemplate encoding="base64"></outboundTemplate>
+          <inboundDataType>JSON</inboundDataType>
+          <outboundDataType>JSON</outboundDataType>
+          <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.2">
+            <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.2">
+              <splitType>JavaScript</splitType>
+              <batchScript></batchScript>
+            </batchProperties>
+          </inboundProperties>
+          <outboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.2">
+            <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.2">
+              <splitType>JavaScript</splitType>
+              <batchScript></batchScript>
+            </batchProperties>
+          </outboundProperties>
+        </responseTransformer>
+        <filter version="4.5.2">
+          <elements/>
+        </filter>
+        <transportName>Channel Writer</transportName>
+        <mode>DESTINATION</mode>
+        <enabled>true</enabled>
+        <waitForPrevious>true</waitForPrevious>
+      </connector>
+    </destinationConnectors>
+    <preprocessingScript>// Modify the message variable below to pre process datareturn message;</preprocessingScript>
+    <postprocessingScript>// This script executes once after a message has been processed// Responses returned from here will be stored as &quot;Postprocessor&quot; in the response mapreturn;</postprocessingScript>
+    <deployScript>// This script executes once when the channel is deployed// You only have access to the globalMap and globalChannelMap here to persist datareturn;</deployScript>
+    <undeployScript>// This script executes once when the channel is undeployed// You only have access to the globalMap and globalChannelMap here to persist datareturn;</undeployScript>
+    <properties version="4.5.2">
+      <clearGlobalChannelMap>true</clearGlobalChannelMap>
+      <messageStorageMode>DEVELOPMENT</messageStorageMode>
+      <encryptData>false</encryptData>
+      <encryptAttachments>false</encryptAttachments>
+      <encryptCustomMetaData>false</encryptCustomMetaData>
+      <removeContentOnCompletion>false</removeContentOnCompletion>
+      <removeOnlyFilteredOnCompletion>false</removeOnlyFilteredOnCompletion>
+      <removeAttachmentsOnCompletion>false</removeAttachmentsOnCompletion>
+      <initialState>STARTED</initialState>
+      <storeAttachments>true</storeAttachments>
+      <metaDataColumns>
+        <metaDataColumn>
+          <name>SOURCE</name>
+          <type>STRING</type>
+          <mappingName>mirth_source</mappingName>
+        </metaDataColumn>
+        <metaDataColumn>
+          <name>TYPE</name>
+          <type>STRING</type>
+          <mappingName>mirth_type</mappingName>
+        </metaDataColumn>
+      </metaDataColumns>
+      <attachmentProperties version="4.5.2">
+        <type>None</type>
+        <properties/>
+      </attachmentProperties>
+      <resourceIds class="linked-hash-map">
+        <entry>
+          <string>Default Resource</string>
+          <string>[Default Resource]</string>
+        </entry>
+      </resourceIds>
+    </properties>
+    <exportData>
+      <metadata>
+        <enabled>true</enabled>
+        <lastModified>
+          <time>1777370777646</time>
+          <timezone>Europe/Madrid</timezone>
+        </lastModified>
+        <pruningSettings>
+          <archiveEnabled>true</archiveEnabled>
+          <pruneErroredMessages>false</pruneErroredMessages>
+        </pruningSettings>
+        <userId>1</userId>
+      </metadata>
+      <dependentIds/>
+      <dependencyIds/>
+      <channelTags/>
+    </exportData>
+  </channel>
+  
