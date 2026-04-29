@@ -1,0 +1,35 @@
+  <channelGroup version="4.5.2">
+    <id>98d47d66-ccd8-43f2-9676-de92960def59</id>
+    <name>TestChannel</name>
+    <revision>6</revision>
+    <lastModified>
+      <time>1777379085480</time>
+      <timezone>Europe/Paris</timezone>
+    </lastModified>
+    <channels>
+      <channel version="4.5.2">
+        <id>772a853f-c8b6-46ec-8a79-d703f4b77627</id>
+        <revision>0</revision>
+      </channel>
+    </channels>
+  </channelGroup>
+  <channelGroup version="4.5.2">
+    <id>b5e9d04d-dbb4-46e5-8ae6-545db097ec1d</id>
+    <name>grupo_prueba</name>
+    <revision>9</revision>
+    <lastModified>
+      <time>1777370034399</time>
+      <timezone>Europe/Paris</timezone>
+    </lastModified>
+    <description></description>
+    <channels>
+      <channel version="4.5.2">
+        <id>b5e9d04d-dbb4-46e5-8ae6-545db097ec1d</id>
+        <revision>0</revision>
+      </channel>
+      <channel version="4.5.2">
+        <id>ff5e9143-054e-4778-a9c1-6a1267096578</id>
+        <revision>0</revision>
+      </channel>
+    </channels>
+  </channelGroup>
